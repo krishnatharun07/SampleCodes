@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<script src="../library/angular/angular.min.js"></script>
+		<script src="../js/app.js"></script>
+	</head>
+	<body ng-app="userApp">
+		<input type="text" ng-model="search" placeholder="Search by UserName" style="margin-left:40%; height:30px; border:2px solid black; border-radius:3px"><br><br>
+		<h1>Data retrieved from the API call is rendered below<h1>
+		<table border="1" style="border-collapse:seperate;empty-cells:hide" ng-controller="controller">
+			<tr>
+				<th>ID</th><th>Name</th><th>User Name</th><th>Email</th><th colspan="3">Address</th><th colspan="2">Geo</th><th>Phone</th><th>Website</th><th colspan="3">Company</th>
+			</tr>
+			<tr>
+				<th></th><th></th><th></th><th></th><th>Street</th><th>Suite</th><th>City</th><th>Zip Code</th><th>Latitude</th><th>Longitude</th><th></th><th></th><th>Name</th><th>Catch Phrase</th><th>BS</th>
+			</tr>
+			<tr ng-repeat="data in users|customSearch:search">
+			<td>{{data.id}}</td><td>{{data.name}}</td><td>{{data.username}}</td><td>{{data.email}}</td><td>{{data.address.street}}</td><td>{{data.address.suite}}</td><td>{{data.address.city}}</td><td>{{data.address.zipcode}}</td><td>{{data.address.geo.lat}}</td><td>{{data.address.geo.lng}}</td><td>{{data.phone}}</td><td>{{data.website}}</td><td>{{data.company.name}}</td><td>{{data.company.catchPhrase}}</td><td>{{data.company.bs}}</td>
+			</tr>
+	</body>
+</html>
